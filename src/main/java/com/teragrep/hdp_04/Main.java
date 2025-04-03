@@ -117,6 +117,10 @@ public final class Main {
                 if (!hdfsConnection.exists(userHome)) {
                     LOGGER.info("Creating <{}>", userHome);
                     hdfsConnection.mkdirs(userHome);
+                    hdfsConnection
+                            .setPermission(
+                                    userHome, new FsPermission(FsAction.READ, FsAction.NONE, FsAction.NONE, true)
+                            );
                     hdfsConnection.setOwner(userHome, user, "hadoop");
                 }
                 final Path userSecret = new Path(userHome, "s3credential");
