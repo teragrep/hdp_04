@@ -93,6 +93,7 @@
             <mapping>
               <directory>/opt/teragrep/${project.artifactId}/etc</directory>
               <directoryIncluded>true</directoryIncluded>
+              <configuration>noreplace</configuration>
               <sources>
                 <source>
                   <location>${project.basedir}/src/resources/etc</location>
