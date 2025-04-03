@@ -1,0 +1,11 @@
+[Unit]
+Description=hdp_04 oneshot service file
+
+[Service]
+Type=oneshot
+StandardOutput=journal
+StandardError=journal
+ExecStart=/usr/lib/jvm/jre-11/bin/java -DconfigurationPath=/opt/teragrep/hdp_04/etc/configuration.properties -Dlog4j.configurationFile=file:///opt/teragrep/hdp_04/etc/log4j2.xml -jar /opt/teragrep/hdp_04/lib/hdp_04.jar
+
+[Install]
+WantedBy=multi-user.target
