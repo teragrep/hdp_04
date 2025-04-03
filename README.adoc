@@ -1,17 +1,11 @@
-// Before publishing your new repository:
-// 1. Write the readme file
-// 2. Update the issues link in Contributing section in the readme file
-// 3. Update the discussion link in config.yml file in .github/ISSUE_TEMPLATE directory
+= HDP_04 Execution Requisites
 
-= repo-template
-
-// Add a short description of your project. Tell what your project does and what it's used for.
-
-This is a template repository for Teragrep organization.
+HDP_04 Execution Requisites
 
 == Features
 
-// List your project's features
+- Syncs HDFS /user directories with users found from LDAP
+- Creates `s3credentials` secret file for each user
 
 == Documentation
 
@@ -19,11 +13,30 @@ See the official documentation on https://docs.teragrep.com[docs.teragrep.com].
 
 == Limitations
 
-// If your project has limitations, please list them. Otherwise remove this section.
+Must be built on Java 11.
 
-== How to [compile/use/implement]
+== How to compile
 
-// add instructions how people can start to use your project
+[source,bash]
+----
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk mvn clean package
+----
+
+== How to use
+
+Directly:
+
+[source,bash]
+----
+java -jar hdp_04.jar
+----
+
+Via systemd file:
+
+[source,bash]
+----
+systemctl start hdp_04
+----
 
 == Contributing
 
